@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import react from 'react';
+import Sidebar from './components/Sidebar';
+import ProfilePage from './pages/ProfilePage';
+import News from './pages/News';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className='app'>
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<ProfilePage />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
+        
+      </div>
+    </BrowserRouter>
   );
 }
 
